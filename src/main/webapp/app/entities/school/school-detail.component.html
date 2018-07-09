@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="school">
+            <h2><span jhiTranslate="gatewayTestApp.school.detail.title">School</span> {{school.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayTestApp.school.name">Name</span></dt>
+                <dd>
+                    <span>{{school.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.description">Description</span></dt>
+                <dd>
+                    <span>{{school.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.foundedYear">Founded Year</span></dt>
+                <dd>
+                    <span>{{school.foundedYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.principal">Principal</span></dt>
+                <dd>
+                    <span>{{school.principal}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.vicePrincipal">Vice Principal</span></dt>
+                <dd>
+                    <span>{{school.vicePrincipal}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.studentCount">Student Count</span></dt>
+                <dd>
+                    <span>{{school.studentCount}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.employeeCount">Employee Count</span></dt>
+                <dd>
+                    <span>{{school.employeeCount}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.address">Address</span></dt>
+                <dd>
+                    <span>{{school.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayTestApp.school.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayTestApp.Status.' + school.status}}">{{school.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/school', school.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

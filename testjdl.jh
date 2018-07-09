@@ -1,0 +1,15 @@
+entity School {
+	name String required maxlength(255),
+    description String maxlength(1000),
+    foundedYear Integer required,
+    principal String required maxlength(255),
+    vicePrincipal String maxlength(255),
+    studentCount Integer required,
+    employeeCount Integer required,
+    address String maxlength(1000),
+    status Status required
+}
+
+enum Status {
+	ACTIVE, PASSIVE
+}
