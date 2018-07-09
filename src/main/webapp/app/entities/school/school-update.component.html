@@ -1,0 +1,145 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-school-heading" jhiTranslate="gatewayTestApp.school.home.createOrEditLabel">Create or edit a School</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!school.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="school.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="school.name" required maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="school.description" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.description?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.foundedYear" for="field_foundedYear">Founded Year</label>
+                    <input type="number" class="form-control" name="foundedYear" id="field_foundedYear"
+                        [(ngModel)]="school.foundedYear" required/>
+                    <div [hidden]="!(editForm.controls.foundedYear?.dirty && editForm.controls.foundedYear?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.foundedYear?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.foundedYear?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.principal" for="field_principal">Principal</label>
+                    <input type="text" class="form-control" name="principal" id="field_principal"
+                        [(ngModel)]="school.principal" required maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.principal?.dirty && editForm.controls.principal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.principal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.principal?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.vicePrincipal" for="field_vicePrincipal">Vice Principal</label>
+                    <input type="text" class="form-control" name="vicePrincipal" id="field_vicePrincipal"
+                        [(ngModel)]="school.vicePrincipal" maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.vicePrincipal?.dirty && editForm.controls.vicePrincipal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.vicePrincipal?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.studentCount" for="field_studentCount">Student Count</label>
+                    <input type="number" class="form-control" name="studentCount" id="field_studentCount"
+                        [(ngModel)]="school.studentCount" required/>
+                    <div [hidden]="!(editForm.controls.studentCount?.dirty && editForm.controls.studentCount?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.studentCount?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.studentCount?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.employeeCount" for="field_employeeCount">Employee Count</label>
+                    <input type="number" class="form-control" name="employeeCount" id="field_employeeCount"
+                        [(ngModel)]="school.employeeCount" required/>
+                    <div [hidden]="!(editForm.controls.employeeCount?.dirty && editForm.controls.employeeCount?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.employeeCount?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.employeeCount?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="school.address" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.address?.dirty && editForm.controls.address?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.address?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayTestApp.school.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="school.status" id="field_status"  required>
+                        <option value="ACTIVE">{{'gatewayTestApp.Status.ACTIVE' | translate}}</option>
+                        <option value="PASSIVE">{{'gatewayTestApp.Status.PASSIVE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.status?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

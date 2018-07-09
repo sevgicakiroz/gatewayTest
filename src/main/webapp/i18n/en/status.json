@@ -1,0 +1,9 @@
+{
+    "gatewayTestApp": {
+        "Status" : {
+            "null": "",
+            "ACTIVE": "ACTIVE",
+            "PASSIVE": "PASSIVE"
+        }
+    }
+}
